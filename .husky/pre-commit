@@ -12,3 +12,9 @@ cmd="./vendor/bin/sail run --rm --no-deps laravel.test ./vendor/bin/pint --test"
 $cmd
 status=$?
 [ $status -eq 0 ] && echo "Pint scan done" || exit 1
+
+echo "Running code analysis"
+cmd="./vendor/bin/sail php ./vendor/bin/phpstan analyse --memory-limit=2G"
+$cmd
+status=$?
+[ $status -eq 0 ] && echo "Code analysis done" || exit 1
