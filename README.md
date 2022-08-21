@@ -1,9 +1,13 @@
-## Развертке проекта:
---------------------
+# Modern-laravel - testing project by B.K.N.
+
+## Развертка проекта:
 
 ## Todo list:
-----------------
-1. PHPStan
-2. Xdebug
-3. Rector
++ ~~init laravel 9 ptoject~~
++ ~~install jetstream~~
++ ~~install telescope~~
++ ~~pre-commit PHP-CS-Fixert~~
++ ~~pre-commit PHPStan~~
++ Xdebug
++ Rector
 
