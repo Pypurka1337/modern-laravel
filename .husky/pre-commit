@@ -8,13 +8,13 @@ status=$?
 [ $status -eq 0 ] && echo "Tests passed" || exit 1
 
 echo "Running code style fixer"
-cmd="./vendor/bin/sail run --rm --no-deps laravel.test ./vendor/bin/pint --test"
+cmd="./vendor/bin/sail run --rm --no-deps laravel.test composer php-cs-fixer"
 $cmd
 status=$?
 [ $status -eq 0 ] && echo "Pint scan done" || exit 1
 
 echo "Running code analysis"
-cmd="./vendor/bin/sail php ./vendor/bin/phpstan analyse --memory-limit=2G"
+cmd="./vendor/bin/sail run --rm --no-deps laravel.test composer phpstan"
 $cmd
 status=$?
 [ $status -eq 0 ] && echo "Code analysis done" || exit 1

@@ -6,6 +6,7 @@
     "license": "MIT",
     "require": {
         "php": "^8.0.2",
+        "friendsofphp/php-cs-fixer": "^3.10",
         "guzzlehttp/guzzle": "^7.2",
         "laravel/framework": "^9.19",
         "laravel/jetstream": "^2.11",
@@ -15,6 +16,7 @@
         "livewire/livewire": "^2.5"
     },
     "require-dev": {
+        "barryvdh/laravel-ide-helper": "^2.12",
         "fakerphp/faker": "^1.9.1",
         "laravel/pint": "^1.0",
         "laravel/sail": "^1.0.1",
@@ -42,13 +44,27 @@
             "@php artisan package:discover --ansi"
         ],
         "post-update-cmd": [
-            "@php artisan vendor:publish --tag=laravel-assets --ansi --force"
+            "@php artisan vendor:publish --tag=laravel-assets --ansi --force",
+            "@php artisan ide-helper:generate",
+            "@php artisan ide-helper:meta"
         ],
         "post-root-package-install": [
             "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
         ],
         "post-create-project-cmd": [
             "@php artisan key:generate --ansi"
+        ],
+        "php-cs-fixer": [
+            "./vendor/bin/php-cs-fixer fix -v --dry-run --show-progress=dots"
+        ],
+        "php-cs-fixer-show": [
+            "./vendor/bin/php-cs-fixer fix -v --diff --dry-run --show-progress=dots"
+        ],
+        "php-cs-fixer-fix": [
+            "./vendor/bin/php-cs-fixer fix -v --show-progress=dots"
+        ],
+        "phpstan": [
+            "./vendor/bin/phpstan"
         ]
     },
     "extra": {
