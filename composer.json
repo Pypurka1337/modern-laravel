@@ -64,7 +64,7 @@
             "./vendor/bin/php-cs-fixer fix -v --show-progress=dots"
         ],
         "phpstan": [
-            "./vendor/bin/phpstan"
+            "./vendor/bin/phpstan analyse --memory-limit=2G"
         ]
     },
     "extra": {
